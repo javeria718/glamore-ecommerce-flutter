@@ -1,0 +1,43 @@
+class CartItemModel {
+  final String productName;
+  final String customerName;
+  final double productPrice;
+  final int numberOfItems;
+  final String productImage;
+
+  CartItemModel({
+    required this.productName,
+    required this.customerName,
+    required this.productPrice,
+    required this.numberOfItems,
+    this.productImage = 'assets/images/iv.jpg',
+  });
+
+  // Convert to JSON (for API or Firestore)
+  Map<String, dynamic> toJson() {
+    return {
+      'productName': productName,
+      'customerName': customerName,
+      'productPrice': productPrice,
+      'numberOfItems': numberOfItems,
+      'productImage': productImage,
+    };
+  }
+
+  // Create from JSON (for API or Firestore)
+  factory CartItemModel.fromJson(Map<String, dynamic> json) {
+    return CartItemModel(
+      productName: json['productName'] ?? '',
+      customerName: json['customerName'] ?? '',
+      productPrice: (json['productPrice'] ?? 0).toDouble(),
+      numberOfItems: json['numberOfItems'] ?? 0,
+      productImage: json['productImage'] ?? 'assets/images/iv.jpg',
+    );
+  }
+
+  @override
+  String toString() {
+    return 'CartItemModel(productName: $productName, customerName: $customerName, price: $productPrice, quantity: $numberOfItems, image: $productImage)';
+  }
+}
+
