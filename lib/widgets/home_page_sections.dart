@@ -379,7 +379,8 @@ class CartTabContent extends ConsumerWidget {
                               const SizedBox(height: 8),
                               LayoutBuilder(
                                 builder: (context, buttonConstraints) {
-                                  final isWide = buttonConstraints.maxWidth >= 700;
+                                  final isWide =
+                                      buttonConstraints.maxWidth >= 700;
                                   return Align(
                                     alignment: Alignment.center,
                                     child: SizedBox(
@@ -393,7 +394,8 @@ class CartTabContent extends ConsumerWidget {
                                             MaterialPageRoute(
                                                 builder: (_) =>
                                                     const CheckoutPage())),
-                                        child: const Text('Proceed to Checkout'),
+                                        child:
+                                            const Text('Proceed to Checkout'),
                                       ),
                                     ),
                                   );
@@ -454,50 +456,28 @@ class FrostedBottomNav extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      minimum: const EdgeInsets.fromLTRB(10, 0, 10, 8),
-      child: ClipRRect(
-        borderRadius: BorderRadius.circular(22),
-        child: BackdropFilter(
-          filter: ImageFilter.blur(sigmaX: 12, sigmaY: 12),
-          child: Container(
-            height: 72,
-            decoration: BoxDecoration(
-              color: Colors.white.withValues(alpha: 0.72),
-              borderRadius: BorderRadius.circular(22),
-              border: Border.all(color: Colors.white.withValues(alpha: 0.88)),
+    // use the platform-optimized BottomNavigationBar which automatically
+    // stretches full width and respects safe-area insets. this gives a cleaner
+    // and more “premium” look than the previous frosted custom container.
+    return BottomNavigationBar(
+      currentIndex: currentIndex,
+      onTap: onTap,
+      type: BottomNavigationBarType.fixed,
+      backgroundColor: Colors.white.withOpacity(0.95),
+      elevation: 8,
+      selectedItemColor: Colors.teal,
+      unselectedItemColor: Colors.black54,
+      selectedLabelStyle: const TextStyle(fontWeight: FontWeight.w700),
+      unselectedLabelStyle: const TextStyle(fontWeight: FontWeight.w500),
+      items: _items
+          .map(
+            (item) => BottomNavigationBarItem(
+              icon: Icon(item.icon),
+              activeIcon: Icon(item.selected),
+              label: item.label,
             ),
-            child: Row(
-              children: List.generate(_items.length, (index) {
-                final item = _items[index];
-                final selected = currentIndex == index;
-                return Expanded(
-                  child: InkWell(
-                    onTap: () => onTap(index),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Icon(selected ? item.selected : item.icon,
-                            color: selected ? Colors.teal : Colors.black54),
-                        const SizedBox(height: 3),
-                        Text(
-                          item.label,
-                          style: TextStyle(
-                            fontSize: 11,
-                            color: selected ? Colors.teal : Colors.black54,
-                            fontWeight:
-                                selected ? FontWeight.w700 : FontWeight.w500,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                );
-              }),
-            ),
-          ),
-        ),
-      ),
+          )
+          .toList(),
     );
   }
 }

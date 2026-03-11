@@ -61,6 +61,12 @@ class _EditProfilePageState extends ConsumerState<EditProfilePage> {
       return;
     }
 
+    // validate phone pattern
+    if (!RegExp(r'^3\d{9}\$').hasMatch(phone)) {
+      _showMessage('Phone must start with 3 and be exactly 10 digits', isError: true);
+      return;
+    }
+
     setState(() => _loading = true);
     try {
       final updated = await ref.read(authActionControllerProvider.notifier).run(
@@ -119,6 +125,7 @@ class _EditProfilePageState extends ConsumerState<EditProfilePage> {
                       icon: Icons.phone_outlined,
                       keyboardType: TextInputType.phone,
                       controller: _phoneController,
+                      helperText: 'Start with 3 and enter 10 digits',
                     ),
                     const SizedBox(height: 18),
                     SizedBox(

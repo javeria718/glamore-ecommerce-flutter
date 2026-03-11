@@ -36,6 +36,12 @@ android {
         targetCompatibility = JavaVersion.VERSION_1_8
     }
 
+    // Ensure Kotlin compiles to the same JVM target as Java to avoid
+    // "Inconsistent JVM-target compatibility" errors described in the build log.
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
+
     buildTypes {
         release {
             signingConfig = signingConfigs.debug
@@ -51,4 +57,13 @@ dependencies {
     implementation platform('com.google.firebase:firebase-bom:32.2.2')
     implementation 'com.google.firebase:firebase-auth'
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+}
+
+// Force kotlin compile tasks to use JVM target 1.8 in case some plugins
+// declare a higher default. This mirrors the Java compileOptions above.
+// (the line above was accidentally un‑commented and caused a syntax error)
+tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile).configureEach {
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
 }

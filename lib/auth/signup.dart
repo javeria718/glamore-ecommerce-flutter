@@ -150,8 +150,8 @@ class _SignUpPageState extends ConsumerState<SignUpPage> {
       showError('Please enter a valid email address.');
     } else if (!emailRegex.hasMatch(email)) {
       showError('Please enter a valid email address.');
-    } else if (mobile.length < 10) {
-      showError('Enter a valid mobile number.');
+    } else if (!RegExp(r'^3\d{9}\$').hasMatch(mobile)) {
+      showError('Enter a valid mobile number starting with 3 (10 digits).');
     } else if (!hasUpper ||
         !hasLower ||
         !hasNumber ||
@@ -248,6 +248,7 @@ class _SignUpPageState extends ConsumerState<SignUpPage> {
                       keyboardType: TextInputType.phone,
                       label: 'Mobile Number',
                       icon: Icons.phone_outlined,
+                      helperText: 'Start with 3 and enter 10 digits (e.g. 3XXXXXXXXX)',
                     ),
                     const SizedBox(height: 16),
                     CustomTextFormField(

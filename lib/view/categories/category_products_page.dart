@@ -387,24 +387,27 @@ class _SortDropdown extends StatelessWidget {
       key: ValueKey(value),
       initialValue: value,
       isExpanded: true,
+      dropdownColor: Colors.white.withOpacity(0.95),
+      style: const TextStyle(color: Colors.black87),
       decoration: InputDecoration(
         labelText: 'Sort by',
+        labelStyle: const TextStyle(color: Colors.teal),
         filled: true,
-        fillColor: Colors.white.withValues(alpha: 0.95),
+        fillColor: Colors.white.withOpacity(0.95),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(12),
-          borderSide: BorderSide(color: Colors.teal.withValues(alpha: 0.2)),
+          borderSide: BorderSide(color: Colors.teal.withOpacity(0.2)),
         ),
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(12),
-          borderSide: BorderSide(color: Colors.teal.withValues(alpha: 0.2)),
+          borderSide: BorderSide(color: Colors.teal.withOpacity(0.2)),
         ),
       ),
       items: _SortOption.values
           .map(
             (option) => DropdownMenuItem<_SortOption>(
               value: option,
-              child: Text(option.label),
+              child: Text(option.label, style: const TextStyle(color: Colors.black87)),
             ),
           )
           .toList(),
@@ -427,24 +430,27 @@ class _FilterDropdown extends StatelessWidget {
       key: ValueKey(value),
       initialValue: value,
       isExpanded: true,
+      dropdownColor: Colors.white.withOpacity(0.95),
+      style: const TextStyle(color: Colors.black87),
       decoration: InputDecoration(
         labelText: 'Price range',
+        labelStyle: const TextStyle(color: Colors.teal),
         filled: true,
-        fillColor: Colors.white.withValues(alpha: 0.95),
+        fillColor: Colors.white.withOpacity(0.95),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(12),
-          borderSide: BorderSide(color: Colors.teal.withValues(alpha: 0.2)),
+          borderSide: BorderSide(color: Colors.teal.withOpacity(0.2)),
         ),
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(12),
-          borderSide: BorderSide(color: Colors.teal.withValues(alpha: 0.2)),
+          borderSide: BorderSide(color: Colors.teal.withOpacity(0.2)),
         ),
       ),
       items: _PriceFilter.values
           .map(
             (option) => DropdownMenuItem<_PriceFilter>(
               value: option,
-              child: Text(option.label),
+              child: Text(option.label, style: const TextStyle(color: Colors.black87)),
             ),
           )
           .toList(),

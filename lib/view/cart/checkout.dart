@@ -297,13 +297,20 @@ class _CheckoutPageState extends ConsumerState<CheckoutPage> {
                           label: 'Email or mobile phone number',
                           keyboardType: TextInputType.emailAddress,
                           controller: emailController,
+                          helperText: 'If using phone start with 3 and 10 digits',
                           validator: (value) {
                             final input = value?.trim() ?? '';
                             if (input.isEmpty) {
-                              return 'Please enter your email';
+                              return 'Please enter your contact info';
                             }
-                            if (!_emailRegex.hasMatch(input)) {
-                              return 'Enter a valid email address';
+                            if (input.contains('@')) {
+                              if (!_emailRegex.hasMatch(input)) {
+                                return 'Enter a valid email address';
+                              }
+                            } else {
+                              if (!RegExp(r'^3\d{9}\$').hasMatch(input)) {
+                                return 'Phone must start with 3 and be 10 digits';
+                              }
                             }
                             return null;
                           },

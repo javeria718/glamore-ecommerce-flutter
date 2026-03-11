@@ -239,6 +239,8 @@ class _SettingsTile extends StatelessWidget {
       ),
       child: ListTile(
         onTap: onTap,
+        splashColor: Colors.teal.withOpacity(0.2), // avoid default yellow ripple
+        hoverColor: Colors.teal.withOpacity(0.1),
         leading: Icon(icon,
             color: darkMode ? Colors.white : const Color(0xFF0B6E69)),
         title: Text(

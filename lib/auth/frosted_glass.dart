@@ -4,6 +4,10 @@ import 'package:flutter/material.dart';
 
 Widget frostyLightBackground({required Widget child}) {
   return Container(
+    // make sure the gradient takes up all available space; otherwise when the
+    // content is shorter than the screen you end up with a transparent/black
+    // gap as seen on the settings page.
+    constraints: const BoxConstraints.expand(),
     decoration: const BoxDecoration(
       gradient: LinearGradient(
         begin: Alignment.topCenter,
