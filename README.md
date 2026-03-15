@@ -217,12 +217,9 @@ Dev:
 
 ## 🔮 Future Improvements
 
-- Add payment gateway (Stripe / Razorpay)
+- Add payment gateway 
 - Product reviews & ratings
 - Push notifications (order updates, promotions)
-- Multi‑currency & internationalization
-- Full unit and widget test coverage
-- Web & desktop responsive UI
 - Real‑time cart sync across devices
 - CI/CD pipeline for automated builds
 
