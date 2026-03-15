@@ -77,7 +77,7 @@ Glamore solves this by offering a realistic e‑commerce experience with a modul
 See the app in action 👇
 
 ▶️ **Full Demo Video:**  
-(https://www.linkedin.com/posts/javeria-shahid-js666364_flutter-mobiledevelopment-dart-ugcPost-7434348924544663552-jYWQ?utm_source=share&utm_medium=member_desktop&rcm=ACoAAFFUxT0BbH7AySHgqrh-lB_rqlVlGBHKeHg)
+[View Demo on LinkedIn](https://www.linkedin.com/posts/javeria-shahid-js666364_flutter-mobiledevelopment-dart-ugcPost-7434348924544663552-jYWQ?utm_source=share&utm_medium=member_desktop&rcm=ACoAAFFUxT0BbH7AySHgqrh-lB_rqlVlGBHKeHg)
 ---
 
 ## 🛠 Tech Stack
@@ -231,7 +231,7 @@ Dev:
 ## ✍️ Author
 
 **JAVERIA SHAHID**  
-[GitHub Profile](https://github.com/javeria718))  
+[GitHub Profile](https://github.com/javeria718)
 [LinkedIn](www.linkedin.com/in/javeria-shahid-js666364)  
 
 
